@@ -1,0 +1,12 @@
+@import "tailwindcss";
+* {
+  font-family: "Ubuntu", sans-serif;
+  scrollbar-color: #ffffff #000000; /* thumb color track color */
+  scrollbar-width: thin; /* auto | thin | none */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
