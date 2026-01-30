@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { clientServer } from "../index.jsx";
+import { clientServer } from "..";
 
 export const userRegister = createAsyncThunk(
   "/user/signup",
@@ -13,7 +13,7 @@ export const userRegister = createAsyncThunk(
     } catch (err) {
       return thankApi.rejectWithValue(err.response.data);
     }
-  }
+  },
 );
 
 export const userLogin = createAsyncThunk(
@@ -34,7 +34,7 @@ export const userLogin = createAsyncThunk(
       console.log(err);
       return thunkAPI.rejectWithValue(err.response.data);
     }
-  }
+  },
 );
 
 export const getUser = createAsyncThunk(
@@ -51,5 +51,5 @@ export const getUser = createAsyncThunk(
       console.log(err);
       return thunkAPI.rejectWithValue(err.response.data);
     }
-  }
+  },
 );

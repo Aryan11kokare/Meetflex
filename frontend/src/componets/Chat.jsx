@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { clientServer } from "../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFile,
@@ -9,7 +8,7 @@ import {
   faPaperPlane,
   faRemove,
 } from "@fortawesome/free-solid-svg-icons";
-import { BASE_URL } from "../../redux";
+import { BASE_URL, clientServer } from "../../redux";
 
 const Chat = ({ messages, socket, username, tooglechat }) => {
   const [message, setMessage] = useState("");

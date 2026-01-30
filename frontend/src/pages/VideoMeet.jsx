@@ -9,10 +9,11 @@ import Toolbar from "../componets/Toolbar.jsx";
 import Meet from "../componets/Meet";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/actions/meetingActions.js";
+import { BASE_URL } from "../../redux/index.jsx";
 
 let connections = {};
 
-const server_url = "http://localhost:8080";
+const server_url = BASE_URL;
 
 const peerConfigConnections = {
   iceServers: [{ urls: "stun:stun.l.google.com:19302" }],

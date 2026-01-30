@@ -20,13 +20,13 @@ export const createMeeting = createAsyncThunk(
           headers: {
             token: localStorage.getItem("token"),
           },
-        }
+        },
       );
       return thunkAPI.fulfillWithValue(responce.data);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data);
     }
-  }
+  },
 );
 
 export const userMeetings = createAsyncThunk(
@@ -42,7 +42,7 @@ export const userMeetings = createAsyncThunk(
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data);
     }
-  }
+  },
 );
 
 export const deleteMeeting = createAsyncThunk(
@@ -58,7 +58,7 @@ export const deleteMeeting = createAsyncThunk(
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data);
     }
-  }
+  },
 );
 
 export const getMeeting = createAsyncThunk(
@@ -75,7 +75,7 @@ export const getMeeting = createAsyncThunk(
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data);
     }
-  }
+  },
 );
 
 export const addUser = createAsyncThunk(
@@ -91,11 +91,11 @@ export const addUser = createAsyncThunk(
           headers: {
             token: localStorage.getItem("token"),
           },
-        }
+        },
       );
       return thunkAPI.fulfillWithValue(responce.data);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.response.data);
     }
-  }
+  },
 );
