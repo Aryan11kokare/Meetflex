@@ -493,7 +493,7 @@ const VideoMeet = () => {
     } catch (e) {
       console.log(e);
     }
-    window.location.href = "http://localhost:5173/";
+    window.location.href = "https://meetflex.vercel.app/";
   };
 
   const handleDraw = () => {
