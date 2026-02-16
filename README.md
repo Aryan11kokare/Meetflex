@@ -7,7 +7,7 @@
 
 <body style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 0; background-color: #f8fafc; color: #1e293b;">
 
-  <!-- HEADER -->
+
   <div style="background: linear-gradient(135deg, #2563eb, #1e40af); padding: 60px 20px; text-align: center; color: white;">
     <h1 style="font-size: 42px; margin-bottom: 10px;">🚀 Meetflex</h1>
     <p style="font-size: 18px; opacity: 0.9;">
@@ -21,15 +21,13 @@
     </p>
   </div>
 
-  <!-- CONTENT -->
   <div style="max-width: 1000px; margin: auto; padding: 40px 20px;">
 
-   <!-- BANNER -->
-  <img src="https://github.com/user-attachments/assets/2c3100be-9db1-47a2-b103-bd7b6c33c31c" alt="Meetflex Banner" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);" />
+  <img src="https://github.com/user-attachments/assets/524ee5ec-651e-436f-902a-d4009f7b8373" alt="Meetflex Banner" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);" />
 
   <hr style="margin: 50px 0;" />
 
-    <!-- OVERVIEW -->
+   
   <h2>📌 Project Overview</h2>
     <p>
       <strong>Meetflex</strong> is a full-stack online video conferencing platform developed using the
@@ -45,7 +43,7 @@
 
    <hr style="margin: 50px 0;" />
 
-  <!-- FEATURES -->
+  
   <h2>✨ Key Features</h2>
 
    <ul style="columns: 2; font-size: 16px;">
@@ -61,7 +59,7 @@
 
   <hr style="margin: 50px 0;" />
 
-    <!-- TECH STACK -->
+  
    <h2>🛠 Tech Stack</h2>
 
   <h3>💻 Frontend</h3>
@@ -97,7 +95,7 @@
 
   <hr style="margin: 50px 0;" />
 
-    <!-- SCREENSHOTS -->
+   
   <h2>📸 Screenshots</h2>
 
   <h3>🏠 Meetings scheduling Page</h3>
@@ -117,7 +115,7 @@
 
    <hr style="margin: 50px 0;" />
 
-    <!-- AUTH FLOW -->
+   
   <h2>🔐 Authentication Flow</h2>
     <ol>
       <li>User registers → Password securely hashed using bcrypt</li>
@@ -127,7 +125,7 @@
 
   <hr style="margin: 50px 0;" />
 
-  <!-- DEPLOYMENT -->
+
   <h2>🌍 Deployment</h2>
     <ul>
       <li><strong>Frontend:</strong> Vercel</li>
