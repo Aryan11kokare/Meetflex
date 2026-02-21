@@ -4,4 +4,5 @@ export const BASE_URL = "https://meetflex.onrender.com";
 
 export const clientServer = axios.create({
   baseURL: BASE_URL,
+  withCredentials: true,
 });

@@ -29,7 +29,7 @@ function Toolbar({
   ];
 
   return (
-    <div className="bg-white/10 rounded-lg border-white/30 border  shadow-lg p-4 mb-4">
+    <div className="border-gray-800 bg-gray-900 border rounded-lg p-4 mb-4 ">
       <div className="flex flex-wrap gap-4 items-center">
         <div className="flex gap-2">
           {tools.map((t) => (
@@ -38,8 +38,8 @@ function Toolbar({
               onClick={() => setTool(t.id)}
               className={`p-4 rounded-full font-medium transition-all ${
                 tool === t.id
-                  ? "bg-gray-600 text-white shadow-md"
-                  : "bg-gray-100/10 text-white hover:bg-gray-600"
+                  ? "bg-blue-600 text-white shadow-lg shadow-blue-600/50"
+                  : "bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
               }`}
               title={t.name}
             >

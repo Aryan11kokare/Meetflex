@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faVideo } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/actions/userActions.js";
+import logo from "../assets/logo.png";
 
 export default function History() {
   const authState = useSelector((state) => state.auth);
@@ -13,8 +14,14 @@ export default function History() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const featchData = async () => {
+    setLoading(true);
+    await dispatch(getUser());
+    setLoading(false);
+  };
+
   useEffect(() => {
-    dispatch(getUser());
+    featchData();
   }, []);
 
   useEffect(() => {
@@ -41,13 +48,11 @@ export default function History() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="min-h-screen flex justify-center  items-center bg-black">
-          <div className="flex justify-center items-center">
-            <h1 className="text-3xl font-extrabold bg-gradient-to-r from-white via-blue-500 to-white bg-[length:200%] animate-[shimmer_2s_linear_infinite] bg-clip-text text-transparent">
-              Meetflex.
-            </h1>
-          </div>
+      <div className="min-h-screen flex justify-center  items-center bg-black">
+        <div className="flex justify-center items-center">
+          <h1 className="text-3xl flex gap-2  font-extrabold bg-gradient-to-r from-white via-blue-500 to-white bg-[length:200%] animate-[shimmer_2s_linear_infinite] bg-clip-text text-transparent">
+            <img src={logo} className="h-8" alt="logo" /> Meetflex.
+          </h1>
         </div>
       </div>
     );

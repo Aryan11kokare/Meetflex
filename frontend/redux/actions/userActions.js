@@ -29,7 +29,7 @@ export const userLogin = createAsyncThunk(
       } else {
         return thunkAPI.rejectWithValue("token not Provided");
       }
-      return thunkAPI.fulfillWithValue(reponce.data);
+      return thunkAPI.fulfillWithValue(response.data);
     } catch (err) {
       console.log(err);
       return thunkAPI.rejectWithValue(err.response.data);

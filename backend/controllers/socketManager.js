@@ -39,7 +39,7 @@ export const connectToSocket = (server) => {
           socket.id,
           connections[path],
           usernames,
-          userInfos[path]
+          userInfos[path],
         );
       }
 
@@ -49,7 +49,7 @@ export const connectToSocket = (server) => {
             "chat-message",
             messages[path][a]["message"],
             messages[path][a]["sender"],
-            messages[path][a]["socket-id-sender"]
+            messages[path][a]["socket-id-sender"],
           );
         }
       }
@@ -73,7 +73,7 @@ export const connectToSocket = (server) => {
           }
           return [room, isFound];
         },
-        ["", false]
+        ["", false],
       );
 
       if (found === true) {
@@ -90,6 +90,24 @@ export const connectToSocket = (server) => {
           io.to(el).emit("chat-message", messageObj, sender, socket.id);
         });
       }
+    });
+
+    socket.on("private_file", (toSocketId, messageObj, sender) => {
+      io.to(toSocketId).emit(
+        "receive_private_file",
+        messageObj,
+        sender,
+        toSocketId,
+        socket.id,
+      );
+
+      io.to(socket.id).emit(
+        "receive_private_file",
+        messageObj,
+        sender,
+        toSocketId,
+        socket.id,
+      );
     });
 
     socket.on("media-state-change", (data) => {
@@ -128,7 +146,7 @@ export const connectToSocket = (server) => {
           }
           return [room, isFound];
         },
-        ["", false]
+        ["", false],
       );
 
       if (found === true) {
@@ -152,12 +170,12 @@ export const connectToSocket = (server) => {
           }
           return [room, isFound];
         },
-        ["", false]
+        ["", false],
       );
 
       if (found === true) {
         const newShapes = shapes[matchingRoom].filter(
-          (el) => el.id !== shapeId
+          (el) => el.id !== shapeId,
         );
         shapes[matchingRoom] = newShapes;
 
@@ -175,12 +193,12 @@ export const connectToSocket = (server) => {
           }
           return [room, isFound];
         },
-        ["", false]
+        ["", false],
       );
 
       if (found === true) {
         const newShapes = shapes[matchingRoom].map((shape) =>
-          shape.id === id ? { ...shape, ...updates } : shape
+          shape.id === id ? { ...shape, ...updates } : shape,
         );
 
         shapes[matchingRoom] = newShapes;

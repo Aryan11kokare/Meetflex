@@ -11,6 +11,7 @@ import {
 } from "../../redux/actions/meetingActions";
 import { MeetingCard } from "../componets/MeetingCard.jsx";
 import { useGSAP } from "@gsap/react";
+import logo from "../assets/logo.png";
 import gsap from "gsap";
 
 const Home = () => {
@@ -45,12 +46,12 @@ const Home = () => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     }
+
     featchMeetings();
   }, []);
 
   useEffect(() => {
     setMeetings(meetingState?.meetings);
-    console.log("hit ");
   }, [meetingState?.meetings]);
 
   const handleDelete = async (id) => {
@@ -107,12 +108,10 @@ const Home = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center  items-center bg-black">
-        <div className="min-h-screen flex justify-center  items-center bg-black">
-          <div className="flex justify-center items-center">
-            <h1 className="text-3xl font-extrabold bg-gradient-to-r from-white via-blue-500 to-white bg-[length:200%] animate-[shimmer_2s_linear_infinite] bg-clip-text text-transparent">
-              Meetflex.
-            </h1>
-          </div>
+        <div className="flex justify-center items-center">
+          <h1 className="text-3xl flex gap-2  font-extrabold bg-gradient-to-r from-white via-blue-500 to-white bg-[length:200%] animate-[shimmer_2s_linear_infinite] bg-clip-text text-transparent">
+            <img src={logo} className="h-8" alt="logo" /> Meetflex.
+          </h1>
         </div>
       </div>
     );
@@ -122,7 +121,10 @@ const Home = () => {
     <div className=" h-screen text-white bg-black overflow-x-hidden">
       <div className=" py-8 px-10 sm:px-20 flex justify-between">
         <div className="flex justify-center items-center">
-          <span className="text-white font-extrabold text-3xl">Meetflex</span>
+          <img src={logo} className="h-8 " alt="logo" />
+          <span className="text-white font-extrabold text-3xl ml-2">
+            Meetflex
+          </span>
           <span className="text-blue-600 font-extrabold text-3xl">.</span>
         </div>
         <button
@@ -188,7 +190,7 @@ const Home = () => {
               />
               <button
                 onClick={handleNavigator}
-                className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none  focus:ring-blue-800  shadow-lg shadow-blue-800/80 font-bold w-full rounded-xl text-base  px-4 py-4 text-center leading-5"
+                className="text-white bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none  focus:ring-blue-800  shadow-lg shadow-blue-800/80 font-bold w-full rounded-xl text-base  px-4 py-4 text-center leading-5"
               >
                 Join
               </button>

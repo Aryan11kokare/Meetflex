@@ -55,7 +55,7 @@ export function MeetingCard({ meeting, handleDelete }) {
               "_blank",
             )
           }
-          className="text-white p-2 w-full flex justify-center items-center gap-2 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none  focus:ring-blue-800 shadow-lg shadow-blue-800/80  rounded-base text-base font-bold rounded-xl  text-center leading-5"
+          className="text-white p-2 w-full flex justify-center items-center gap-2 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none  focus:ring-blue-800 shadow-lg shadow-blue-800/80  rounded-base text-base font-bold rounded-xl  text-center leading-5"
         >
           <Video className="w-6 h-6 " />
           <span>Join Meeting</span>

@@ -59,7 +59,7 @@ function Canvas({
     if (tool === "select") {
       const handle = getResizeHandle(
         shapes.find((s) => s.id === selectedShape),
-        pos
+        pos,
       );
       if (handle) {
         setResizing(handle);
@@ -215,7 +215,7 @@ function Canvas({
   };
 
   return (
-    <div className=" rounded-lg shadow-lg p-4 border-white/30 border  ">
+    <div className=" p-4 b  ">
       <canvas
         ref={canvasRef}
         width={1200}
@@ -224,7 +224,7 @@ function Canvas({
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
-        className="border-2 border-gray-400 rounded-lg cursor-crosshair bg-gradient-to-r from-[#0f172a]  to-[#334155]"
+        className="border-2  rounded-lg cursor-crosshair border-gray-800 bg-gray-900"
       />
     </div>
   );

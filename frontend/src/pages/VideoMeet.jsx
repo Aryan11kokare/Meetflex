@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 import { useNavigate } from "react-router-dom";
-import DisplayVideos from "../componets/DisplayVideos";
-import Chat from "../componets/Chat";
-import Controller from "../componets/Controller";
+import DisplayVideos from "../componets/DisplayVideos.jsx";
+import Chat from "../componets/Chat.jsx";
+import Participants from "../componets/Participant.jsx";
+import Controller from "../componets/Controller.jsx";
 import Canvas from "../componets/Canvas.jsx";
 import Toolbar from "../componets/Toolbar.jsx";
-import Meet from "../componets/Meet";
+import Meet from "../componets/Meet.jsx";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/actions/meetingActions.js";
 import { BASE_URL } from "../../redux/index.jsx";
@@ -46,11 +47,11 @@ const VideoMeet = () => {
   const [screen, setScreen] = useState();
   const [showModal, setShowModal] = useState(false);
   const [messages, setMessages] = useState([]);
+  const [privetMessages, setPrivetMessages] = useState([]);
   const [newMessages, setNewMessages] = useState(0);
   const [askforUsername, setAskforUsername] = useState(true);
   const [username, setUsername] = useState("");
-
-  const navigate = useNavigate();
+  const [showUsers, setShowUsers] = useState(false);
 
   const getPermissions = async () => {
     try {
@@ -148,6 +149,21 @@ const VideoMeet = () => {
     }
   };
 
+  console.log(privetMessages);
+
+  const addPrivetFile = (message, sender, toSocketId, fromSocketId) => {
+    console.log("into the Privet file");
+    setPrivetMessages((prevmessages) => [
+      ...prevmessages,
+      {
+        sender: fromSocketId,
+        reciver: toSocketId,
+        data: message.data,
+        type: message.type,
+      },
+    ]);
+  };
+
   const connectToSocketServer = () => {
     socketRef.current = io.connect(server_url, { secure: false });
     socketRef.current.on("signal", gotMessageFromServer);
@@ -175,6 +191,7 @@ const VideoMeet = () => {
       socketRef.current.on("draw-message", addShape);
       socketRef.current.on("erase-shape", deleteShape);
       socketRef.current.on("update-shape", updateShape);
+      socketRef.current.on("receive_private_file", addPrivetFile);
       socketRef.current.on("user_left", (id) => {
         setVideos((videos) => videos.filter((video) => video.socketId !== id));
       });
@@ -486,6 +503,12 @@ const VideoMeet = () => {
     setShowModal(!showModal);
   };
 
+  let toogleusers = () => {
+    console.log("into the toggle users");
+    setShowUsers(!showUsers);
+    console.log(showUsers);
+  };
+
   const handleEndCall = () => {
     try {
       let tracks = localVideoRef.current.srcObject.getTracks();
@@ -515,7 +538,6 @@ const VideoMeet = () => {
   };
 
   const deleteShape = (id) => {
-    console.log(id);
     setShapes((preves) => preves.filter((shape) => shape.id !== id));
     if (selectedShape === id) {
       setSelectedShape(null);
@@ -551,6 +573,7 @@ const VideoMeet = () => {
             handleDraw={handleDraw}
             handleEndCall={handleEndCall}
             tooglechat={tooglechat}
+            toogleusers={toogleusers}
             video={video}
             audio={audio}
             screen={screen}
@@ -561,6 +584,16 @@ const VideoMeet = () => {
               messages={messages}
               socket={socketRef.current}
               username={username}
+            />
+          ) : null}
+
+          {showUsers === true ? (
+            <Participants
+              toogleusers={toogleusers}
+              videos={videos}
+              socket={socketRef.current}
+              username={username}
+              messages={privetMessages}
             />
           ) : null}
 

@@ -23,13 +23,12 @@ export const Login = () => {
 
     try {
       let responce = await dispatch(userLogin({ email, password }));
-      if (responce.error.message === "Rejected") {
+      if (responce?.error?.message === "Rejected") {
         setError(responce.payload);
       } else {
         navigate("/meet");
         setEmail("");
         setPassword("");
-        setConfirmPassword("");
       }
     } catch (err) {
       console.log(err);

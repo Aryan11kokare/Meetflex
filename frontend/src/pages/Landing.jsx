@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useGSAP } from "@gsap/react";
+import logo from "../assets/logo.png";
 import gsap from "gsap";
 import Footer from "../componets/Footer";
 
@@ -45,8 +46,8 @@ const Landing = () => {
     return (
       <div className="min-h-screen flex justify-center  items-center bg-black">
         <div className="flex justify-center items-center">
-          <h1 className="text-3xl font-extrabold bg-gradient-to-r from-white via-blue-500 to-white bg-[length:200%] animate-[shimmer_2s_linear_infinite] bg-clip-text text-transparent">
-            Meetflex.
+          <h1 className="text-3xl flex gap-2  font-extrabold bg-gradient-to-r from-white via-blue-500 to-white bg-[length:200%] animate-[shimmer_2s_linear_infinite] bg-clip-text text-transparent">
+            <img src={logo} className="h-8" alt="logo" /> Meetflex.
           </h1>
         </div>
       </div>
@@ -73,7 +74,7 @@ const Landing = () => {
               onClick={() => {
                 navigate("/meet");
               }}
-              className="text-white w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none  focus:ring-blue-800 shadow-lg shadow-blue-800/80 font-medium rounded-base text-xl rounded-xl px-4 py-4 text-center leading-5"
+              className="text-white w-full bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none  focus:ring-blue-800 shadow-lg shadow-blue-800/80 font-medium rounded-base text-xl rounded-xl px-4 py-4 text-center leading-5"
             >
               Create the Meeting &nbsp;
               <FontAwesomeIcon icon={faArrowRight} />

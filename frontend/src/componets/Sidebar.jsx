@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { clientServer } from "../../redux";
 
 const Sidebar = ({ handleClick }) => {
   const [login, setLogin] = useState(false);
@@ -78,7 +79,7 @@ const Sidebar = ({ handleClick }) => {
         ) : (
           <button
             id="btn"
-            onClick={() => {
+             onClick={() => {
               localStorage.removeItem("token");
               setLogin(false);
             }}
